@@ -3,18 +3,19 @@
 <head>
 <script type="text/javascript">
 function updateText(){
-    document.getElementById('q').value = 'owner:k12storymaps '  + encodeURIComponent(document.getElementById('f1').value);
+    document.getElementById('q').value = 'https://k12.maps.arcgis.com/home/search.html?q=owner:k12storymaps '  + encodeURIComponent(document.getElementById('f1').value);
 
 }
 </script>
 </head>
 
 <body>
-<h1>ArcLessons .07</h1>
+<h1>ArcLessons .09</h1>
 Find and use instructional resources from across Esri<br />
 <br />
 
-<form method="get" action="https://k12.maps.arcgis.com/home/search.html">
+<!---- form method="get" action="https://k12.maps.arcgis.com/home/search.html" ---->
+<form>
 Keyword: <input type="text" id="f1" onkeyup="updateText();"><br />
 
 Standard (includes grade, subject, topic):
@@ -195,8 +196,8 @@ Reading level:
 </select><br />
 
 <!---- hidden var used to store query params ----->
-<input type="text" name="q" id="q" value="owner:k12storymaps " width=400><br />
-<input type="Submit" value=" Search ">
+<input type="text" name="q" id="q" value="https://k12.maps.arcgis.com/home/search.html?q=owner:k12storymaps " width=400><br />
+<input type="button" value=" Search " onclick="location.href=document.getElementById('q').value;" >
 </form>
 </body>
 </html>
