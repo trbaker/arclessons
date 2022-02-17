@@ -1,18 +1,24 @@
 <html>
 
 <head>
+<script type="text/javascript">
+function updateText(){
+    document.getElementById('q').value = 'owner:k12storymaps '  + encodeURIComponent(document.getElementById('f1').value);
 
+}
+</script>
 </head>
 
 <body>
-<h1>ArcLessons</h1>
+<h1>ArcLessons .07</h1>
 Find and use instructional resources from across Esri<br />
 <br />
 
-<form action="https://k12.maps.arcgis.com/home/search.html?q=owner%3Ak12storymaps&">
-Keyword: <input type="text" name="q"><br />
+<form method="get" action="https://k12.maps.arcgis.com/home/search.html">
+Keyword: <input type="text" id="f1" onkeyup="updateText();"><br />
+
 Standard (includes grade, subject, topic):
-<select name=q>
+<select>
 <option value="">Any
 <option value="4-PS3-1">4-PS3-1	Energy</option>
 <option value="4-PS3-2">4-PS3-2	Energy
@@ -175,7 +181,7 @@ Standard (includes grade, subject, topic):
 <option value="HS-ETS1-4">HS-ETS1-4	Engineering Design
 </select><br />
 Reading level:
-<select name=q>
+<select>
 <option value="">Any
 <option value='12.?'>12</option>
 <option value='11.?'>11</option>
@@ -187,6 +193,9 @@ Reading level:
 <option value='5.?'>5</option>
 <option value='4.?'>4</option>
 </select><br />
+
+<!---- hidden var used to store query params ----->
+<input type="text" name="q" id="q" value="owner:k12storymaps " width=400><br />
 <input type="Submit" value=" Search ">
 </form>
 </body>
