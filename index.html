@@ -3,23 +3,22 @@
 <head>
 <script type="text/javascript">
 function updateText(){
-    document.getElementById('q').value = 'https://k12.maps.arcgis.com/home/search.html?q=owner:k12storymaps '  + encodeURIComponent(document.getElementById('f1').value);
-
+    document.getElementById('q').value = 'https://k12.maps.arcgis.com/home/search.html?q=owner:k12storymaps '  + encodeURIComponent(document.getElementById('f1').value) + ' ' + document.getElementById("f2").value + ' ' + document.getElementById("f3").value;
 }
 </script>
 </head>
 
 <body>
-<h1>ArcLessons .09</h1>
+<h1>K12 ArcGIS Online Resources </h1>
 Find and use instructional resources from across Esri<br />
 <br />
 
 <!---- form method="get" action="https://k12.maps.arcgis.com/home/search.html" ---->
 <form>
-Keyword: <input type="text" id="f1" onkeyup="updateText();"><br />
+Keyword: <input type="text" id="f1" onChange="updateText();"><br />
 
-Standard (includes grade, subject, topic):
-<select>
+Science standard (includes grade, subject, topic):
+<select id="f2" onChange="updateText();">
 <option value="">Any
 <option value="4-PS3-1">4-PS3-1	Energy</option>
 <option value="4-PS3-2">4-PS3-2	Energy
@@ -181,22 +180,22 @@ Standard (includes grade, subject, topic):
 <option value="HS-ETS1-3">HS-ETS1-3	Engineering Design
 <option value="HS-ETS1-4">HS-ETS1-4	Engineering Design
 </select><br />
-Reading level:
-<select>
+Reading level (Flesch-Kincaid):
+<select id="f3" onChange="updateText();">
 <option value="">Any
-<option value='12.?'>12</option>
-<option value='11.?'>11</option>
-<option value='10.?'>10</option>
-<option value='9.?'>9</option>
-<option value='8.?'>8</option>
-<option value='7.?'>7</option>
-<option value='6.?'>6</option>
-<option value='5.?'>5</option>
-<option value='4.?'>4</option>
+<option value='(12.9 OR 12.8 OR 12.7 OR 12.6 OR 12.5 OR 12.4 OR 12.3 OR 12.2 OR 12.1 OR 12.0)'>12</option>
+<option value='(11.9 OR 11.8 OR 11.7 OR 11.6 OR 11.5 OR 11.4 OR 11.3 OR 11.2 OR 11.1 OR 11.0)'>11</option>
+<option value='(10.9 OR 10.8 OR 10.7 OR 10.6 OR 10.5 OR 10.4 OR 10.3 OR 10.2 OR 10.1 OR 10.0)'>10</option>
+<option value='(9.9 OR 9.8 OR 9.7 OR 9.6 OR 9.5 OR 9.4 OR 9.3 OR 9.2 OR 9.1 OR 9.0)'>9</option>
+<option value='(8.9 OR 8.8 OR 8.7 OR 8.6 OR 8.5 OR 8.4 OR 8.3 OR 8.2 OR 8.1 OR 8.0)'>8</option>
+<option value='(7.9 OR 7.8 OR 7.7 OR 7.6 OR 7.5 OR 7.4 OR 7.3 OR 7.2 OR 7.1 OR 7.0)'>7</option>
+<option value='(6.9 OR 6.8 OR 6.7 OR 6.6 OR 6.5 OR 6.4 OR 6.3 OR 6.2 OR 6.1 OR 6.0)'>6</option>
+<option value='(5.9 OR 5.8 OR 5.7 OR 5.6 OR 5.5 OR 5.4 OR 5.3 OR 5.2 OR 5.1 OR 5.0)'>5</option>
+<option value='(4.9 OR 4.8 OR 4.7 OR 4.6 OR 4.5 OR 4.4 OR 4.3 OR 4.2 OR 4.1 OR 4.0)'>4</option>
 </select><br />
 
 <!---- hidden var used to store query params ----->
-<input type="text" name="q" id="q" value="https://k12.maps.arcgis.com/home/search.html?q=owner:k12storymaps " width=400><br />
+<input type="text" name="q" id="q" value="https://k12.maps.arcgis.com/home/search.html?q=owner:k12storymaps " size=400><br />
 <input type="button" value=" Search " onclick="location.href=document.getElementById('q').value;" >
 </form>
 </body>
